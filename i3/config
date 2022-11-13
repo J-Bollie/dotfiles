@@ -193,3 +193,8 @@ exec --no-startup-id nitrogen --restore
 # Switching to previous/next workspace
 bindsym Mod1+Control+Right workspace next
 bindsym Mod1+Control+Left workspace prev
+
+# Assign specific applications to specific workspaces
+assign [class="discord|slack"] 4
+assign [class="ghostwriter|notion"] 5
+assign [class="Bitwarden"] 9
