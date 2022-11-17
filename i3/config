@@ -9,6 +9,12 @@
 #
 # Please see https://i3wm.org/docs/userguide.html for a complete reference!
 
+#Needed for i3-gaps
+#hide_edge_borders both
+for_window [class="^.*"] border pixel 2 
+gaps inner 10
+gaps outer 5
+
 set $mod Mod4
 
 # Font for window titles. Will also be used by the bar unless a different font
@@ -45,7 +51,7 @@ bindsym XF86AudioMicMute exec --no-startup-id pactl set-source-mute @DEFAULT_SOU
 floating_modifier $mod
 
 # start a terminal
-bindsym $mod+Return exec tilda
+bindsym $mod+Return exec gnome-terminal
 
 # kill focused window
 bindsym $mod+q kill
@@ -190,6 +196,12 @@ assign [class="Bitwarden"] 9
 
 # Run the rofi application launcher
 bindsym $mod+d exec --no-startup-id rofi -show run
+
+# Make sure to set the keyboard layout
+exec_always --no-startup-id setxkbmap be
+
+# Makes sure the timezone is set correctly
+exec_always --no-startup-id timedatectl set-timezone Europe/Paris
 
 # Logout the current user
 bindsym $mod+Shift+e exec "pkill -kill -U $USER"
